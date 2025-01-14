@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3sim1bnrk3pm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_klyy4"]
+size = Vector3(10, 0.25, 10)
+
+[node name="World" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.985503, 0, 0.169659, 0.0752295, 0.896316, 0.436987, -0.152068, 0.443415, -0.883322, 0, 1.3822, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.59158, 0)
+omni_range = 7.64856
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+mesh = SubResource("BoxMesh_klyy4")

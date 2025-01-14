@@ -17,17 +17,18 @@ func _process(delta: float) -> void:
 			return
 			
 		animate_move_left()
-		focus = (focus - 1) % FOCUS_LIST.size()
+		focus = (focus + 4) % FOCUS_LIST.size()
+		print(focus)
 	if Input.is_action_just_pressed("move_right"):
 		if ap.is_playing():
 			return
 			
 		animate_move_right()
 		focus = (focus + 1) % FOCUS_LIST.size()
+		print(focus)
 
 
 func animate_move_right():
-
 	if focus == 0:
 		ap.play("camera_from_table_to_drawer")
 	if focus == 1:
@@ -41,4 +42,13 @@ func animate_move_right():
 
 
 func animate_move_left():
-	pass
+	if focus == 0:
+		ap.play("camera_from_table_to_bed")
+	if focus == 1:
+		ap.play("camera_from_drawer_to_table")
+	if focus == 2:
+		ap.play("camera_from_shelf_to_drawer")
+	if focus == 3:
+		ap.play("camera_from_couch_to_shelf")
+	if focus == 4:
+		ap.play("camera_from_bed_to_couch")

@@ -7,6 +7,8 @@ const FOCUS_LIST = ["TABLE", "DRAWER", "SHELF", "COUCH", "BED"]
 @onready var camera = $Camera3D
 @onready var ap = $AnimationPlayer
 
+@onready var main_view = $UI/MainView
+
 func _ready() -> void:
 	pass;
 
@@ -18,14 +20,16 @@ func _process(delta: float) -> void:
 			
 		animate_move_left()
 		focus = (focus + 4) % FOCUS_LIST.size()
-		print(focus)
+		
 	if Input.is_action_just_pressed("move_right"):
 		if ap.is_playing():
 			return
 			
 		animate_move_right()
 		focus = (focus + 1) % FOCUS_LIST.size()
-		print(focus)
+		
+	main_view.update()
+
 
 
 func animate_move_right():

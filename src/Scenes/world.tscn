@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b3sim1bnrk3pm"]
+[gd_scene load_steps=45 format=3 uid="uid://b3sim1bnrk3pm"]
 
 [ext_resource type="ArrayMesh" uid="uid://cv731ixma7nih" path="res://Assets/Bed_Single.obj" id="1_tmb4w"]
 [ext_resource type="Script" path="res://src/Scripts/world.gd" id="1_x0d2u"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://djyk225x2met7" path="res://Assets/Fonts/Helvetica/Helvetica-BoldOblique.ttf" id="8_3862h"]
 [ext_resource type="Script" path="res://src/Scripts/main_view.gd" id="8_jh1i6"]
 [ext_resource type="Shader" path="res://src/Shaders/description_project.gdshader" id="9_mncsl"]
+[ext_resource type="FontFile" uid="uid://bg3ap2bvi3dba" path="res://Assets/Fonts/Helvetica/helvetica-light-587ebe5a59211.ttf" id="11_fu7am"]
 [ext_resource type="Script" path="res://src/Scripts/description.gd" id="11_xhup8"]
 [ext_resource type="FontFile" uid="uid://bt65l7ovacrk4" path="res://Assets/Fonts/Helvetica/Helvetica-Bold.ttf" id="12_g21pr"]
 [ext_resource type="Texture2D" uid="uid://buy5jmt7xdu6g" path="res://Assets/Images/action_bg.png" id="12_gkkwo"]
@@ -353,6 +354,18 @@ _data = {
 "camera_from_table_to_drawer": SubResource("Animation_korwu")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_ju3i5"]
+font = ExtResource("8_3862h")
+font_size = 108
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vcg42"]
+font = ExtResource("11_fu7am")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ebb0e"]
 shader = ExtResource("9_mncsl")
 
@@ -383,7 +396,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ActionBg:position")
+tracks/0/path = NodePath("Action/ActionBg:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -400,7 +413,7 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ActionBg:position")
+tracks/0/path = NodePath("Action/ActionBg:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -504,7 +517,55 @@ offset_bottom = 1080.0
 script = ExtResource("8_jh1i6")
 world = NodePath("../..")
 
-[node name="Description" type="Label" parent="UI/MainView" node_paths=PackedStringArray("world")]
+[node name="Top" type="Control" parent="UI/MainView"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TopBg" type="ColorRect" parent="UI/MainView/Top"]
+modulate = Color(1, 1, 1, 0.913725)
+layout_mode = 0
+offset_left = -2.0
+offset_top = 6.0
+offset_right = 1920.0
+offset_bottom = 222.0
+color = Color(1, 0.976471, 1, 1)
+
+[node name="L" type="Label" parent="UI/MainView/Top"]
+layout_mode = 0
+offset_left = 1200.0
+offset_top = 95.0
+offset_right = 1266.0
+offset_bottom = 204.0
+text = "L"
+label_settings = SubResource("LabelSettings_ju3i5")
+
+[node name="Description" type="Label" parent="UI/MainView/Top"]
+layout_mode = 0
+offset_left = 1374.0
+offset_top = 99.0
+offset_right = 1547.0
+offset_bottom = 158.0
+text = "Projects
+"
+label_settings = SubResource("LabelSettings_vcg42")
+
+[node name="R" type="Label" parent="UI/MainView/Top"]
+layout_mode = 0
+offset_left = 1660.0
+offset_top = 95.0
+offset_right = 1738.0
+offset_bottom = 204.0
+text = "R
+"
+label_settings = SubResource("LabelSettings_ju3i5")
+
+[node name="Left" type="Control" parent="UI/MainView"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Description" type="Label" parent="UI/MainView/Left" node_paths=PackedStringArray("world")]
 material = SubResource("ShaderMaterial_ebb0e")
 layout_mode = 0
 offset_left = 160.0
@@ -519,9 +580,9 @@ theme_override_fonts/font = SubResource("FontVariation_7fngn")
 theme_override_font_sizes/font_size = 240
 text = "PROJECTS PROJECTS PROJECTS"
 script = ExtResource("11_xhup8")
-world = NodePath("../../..")
+world = NodePath("../../../..")
 
-[node name="Number" type="Label" parent="UI/MainView"]
+[node name="Number" type="Label" parent="UI/MainView/Left"]
 layout_mode = 0
 offset_left = 160.0
 offset_top = 16.0
@@ -537,13 +598,18 @@ theme_override_font_sizes/font_size = 240
 text = "00
 "
 
-[node name="ActionBg" type="Sprite2D" parent="UI/MainView"]
+[node name="Action" type="Control" parent="UI/MainView"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ActionBg" type="Sprite2D" parent="UI/MainView/Action"]
 position = Vector2(1434, 910)
 rotation = 0.0630533
 scale = Vector2(0.143043, 0.135275)
 texture = ExtResource("12_gkkwo")
 
-[node name="ActionBack" type="Label" parent="UI/MainView" node_paths=PackedStringArray("world")]
+[node name="ActionBack" type="Label" parent="UI/MainView/Action" node_paths=PackedStringArray("world")]
 layout_mode = 0
 offset_left = 1113.0
 offset_top = 926.0
@@ -552,9 +618,9 @@ offset_bottom = 975.0
 text = "Press ENTER to view projects"
 label_settings = SubResource("LabelSettings_scrvm")
 script = ExtResource("13_crfdk")
-world = NodePath("../../..")
+world = NodePath("../../../..")
 
-[node name="ActionFront" type="Label" parent="UI/MainView" node_paths=PackedStringArray("world")]
+[node name="ActionFront" type="Label" parent="UI/MainView/Action" node_paths=PackedStringArray("world")]
 layout_mode = 0
 offset_left = 1116.0
 offset_top = 929.0
@@ -563,7 +629,7 @@ offset_bottom = 978.0
 text = "Press ENTER to view projects"
 label_settings = SubResource("LabelSettings_l8w7i")
 script = ExtResource("14_31cp7")
-world = NodePath("../../..")
+world = NodePath("../../../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/MainView"]
 libraries = {

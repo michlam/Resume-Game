@@ -8,8 +8,8 @@ func _ready():
 	$AnimationPlayer.play("action_bg_idle")
 
 func update():
-	$Number.text = "0" + str(world.focus)
-	$Description.text = DESCRIPTION_LIST[world.focus] + DESCRIPTION_LIST[world.focus] + DESCRIPTION_LIST[world.focus]
-	$Description.update_shader()
-	$ActionBack.update_text()
-	$ActionFront.update_text()
+	$Left/Number.text = "0" + str(world.focus)
+	$Left/Description.text = DESCRIPTION_LIST[world.focus] + DESCRIPTION_LIST[world.focus] + DESCRIPTION_LIST[world.focus]
+	$Left/Description.update_shader()
+	$Action/ActionBack.update_text()
+	$Action/ActionFront.update_text()

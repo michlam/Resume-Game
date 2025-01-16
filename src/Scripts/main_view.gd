@@ -1,9 +1,10 @@
 extends Control
 
 # TABLE, DRAWER, SHELF, COUCH, BED
-const DESCRIPTION_LIST = ["PROJECTS", "EDUCATION", "GAMES", "CAREER", "OTHER"]
+const DESCRIPTION_LIST = ["PROJECT ", "SCHOOLS ", "GAMEDEV ", "WORKEXP ", "DRAWING "]
 
 @export var world: Node3D
 
 func update():
-	$Description.text = DESCRIPTION_LIST[world.focus]
+	$Number.text = "0" + str(world.focus)
+	$Description.text = DESCRIPTION_LIST[world.focus] + DESCRIPTION_LIST[world.focus] + DESCRIPTION_LIST[world.focus]

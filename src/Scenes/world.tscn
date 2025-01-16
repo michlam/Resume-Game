@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://b3sim1bnrk3pm"]
+[gd_scene load_steps=52 format=3 uid="uid://b3sim1bnrk3pm"]
 
 [ext_resource type="ArrayMesh" uid="uid://cv731ixma7nih" path="res://Assets/Bed_Single.obj" id="1_tmb4w"]
 [ext_resource type="Script" path="res://src/Scripts/world.gd" id="1_x0d2u"]
@@ -370,6 +370,64 @@ font_size = 48
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_6fwlw"]
+resource_name = "arrows_idle"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowLeft:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1165, -0.25, 0, 0.25, 0, 1145, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArrowRight:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1790, -0.25, 0, 0.25, 0, 1810, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+
+[sub_resource type="Animation" id="Animation_pe5h5"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowLeft:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1145, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArrowRight:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xt1mc"]
+_data = {
+"RESET": SubResource("Animation_pe5h5"),
+"arrows_idle": SubResource("Animation_6fwlw")
+}
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ebb0e"]
 shader = ExtResource("9_mncsl")
 
@@ -539,6 +597,15 @@ offset_right = 1920.0
 offset_bottom = 222.0
 color = Color(1, 0.976471, 1, 1)
 
+[node name="ColorRect" type="ColorRect" parent="UI/MainView/Top/TopBg"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -7.00001
+offset_right = 38.0
+offset_bottom = 33.0
+scale = Vector2(48.04, 1.85)
+color = Color(0, 0, 0, 0.933333)
+
 [node name="Buttons" type="Control" parent="UI/MainView/Top"]
 anchors_preset = 0
 offset_right = 40.0
@@ -604,17 +671,21 @@ text = "R
 "
 label_settings = SubResource("LabelSettings_ju3i5")
 
+[node name="ArrowLeft" type="Sprite2D" parent="UI/MainView/Top"]
+position = Vector2(1145, 145)
+rotation = 3.14159
+scale = Vector2(0.15, -0.15)
+texture = ExtResource("15_rqhhc")
+
 [node name="ArrowRight" type="Sprite2D" parent="UI/MainView/Top"]
-position = Vector2(1812, 145)
+position = Vector2(0, 145)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("15_rqhhc")
 
-[node name="ArrowRight2" type="Sprite2D" parent="UI/MainView/Top"]
-position = Vector2(1147, 145)
-scale = Vector2(-0.15, 0.15)
-texture = ExtResource("15_rqhhc")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/MainView/Top"]
+libraries = {
+"": SubResource("AnimationLibrary_xt1mc")
+}
 
 [node name="Left" type="Control" parent="UI/MainView"]
 anchors_preset = 0

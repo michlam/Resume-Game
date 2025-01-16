@@ -7,7 +7,7 @@ const DESCRIPTION_LIST = ["PROJECTS ", "EDUCATION ", "GAMEDEV ", "CAREER ", "DRA
 func _ready():
 	$AnimationPlayer.play("action_bg_idle")
 
-func update():
+func update_focus():
 	$Left/Number.text = "0" + str(world.focus)
 	$Left/Description.text = DESCRIPTION_LIST[world.focus] + DESCRIPTION_LIST[world.focus] + DESCRIPTION_LIST[world.focus]
 	$Left/Description.update_shader()

@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 			
 		animate_move_left()
 		focus = (focus + 4) % FOCUS_LIST.size()
+		main_view.update_focus()
 		
 	if Input.is_action_just_pressed("move_right"):
 		if ap.is_playing():
@@ -27,8 +28,7 @@ func _process(delta: float) -> void:
 			
 		animate_move_right()
 		focus = (focus + 1) % FOCUS_LIST.size()
-		
-	main_view.update()
+		main_view.update_focus()
 
 
 

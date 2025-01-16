@@ -12,4 +12,5 @@ func _ready():
 func update_focus():
 	$Description.set_text(DESCRIPTION_LIST[world.focus]);
 	$Buttons/ButtonSelected.position.x = BUTTON_SELECTED_BASE_X + world.focus * BUTTON_SELECTED_OFFSET
-	$AnimationPlayer.play("arrows_change")
+	$AnimationPlayer.stop()
+	$AnimationPlayer.play("arrows_idle")

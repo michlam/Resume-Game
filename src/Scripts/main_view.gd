@@ -8,3 +8,4 @@ const DESCRIPTION_LIST = ["PROJECT ", "SCHOOLS ", "GAMEDEV ", "WORKEXP ", "DRAWI
 func update():
 	$Number.text = "0" + str(world.focus)
 	$Description.text = DESCRIPTION_LIST[world.focus] + DESCRIPTION_LIST[world.focus] + DESCRIPTION_LIST[world.focus]
+	$Description.update_shader()

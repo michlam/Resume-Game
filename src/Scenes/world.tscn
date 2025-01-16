@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b3sim1bnrk3pm"]
+[gd_scene load_steps=29 format=3 uid="uid://b3sim1bnrk3pm"]
 
 [ext_resource type="ArrayMesh" uid="uid://cv731ixma7nih" path="res://Assets/Bed_Single.obj" id="1_tmb4w"]
 [ext_resource type="Script" path="res://src/Scripts/world.gd" id="1_x0d2u"]
@@ -9,7 +9,8 @@
 [ext_resource type="ArrayMesh" uid="uid://chn0uaxn7ksa2" path="res://Assets/Drawer_1.obj" id="7_ivhw2"]
 [ext_resource type="FontFile" uid="uid://djyk225x2met7" path="res://Assets/Fonts/Helvetica/Helvetica-BoldOblique.ttf" id="8_3862h"]
 [ext_resource type="Script" path="res://src/Scripts/main_view.gd" id="8_jh1i6"]
-[ext_resource type="Shader" path="res://src/Shaders/description_drawing.gdshader" id="9_65qrr"]
+[ext_resource type="Shader" path="res://src/Shaders/description_project.gdshader" id="9_mncsl"]
+[ext_resource type="Script" path="res://src/Scripts/description.gd" id="11_xhup8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_klyy4"]
 size = Vector3(10, 0.25, 10)
@@ -337,7 +338,7 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ebb0e"]
-shader = ExtResource("9_65qrr")
+shader = ExtResource("9_mncsl")
 
 [sub_resource type="FontVariation" id="FontVariation_7fngn"]
 base_font = ExtResource("8_3862h")
@@ -434,7 +435,7 @@ offset_bottom = 1080.0
 script = ExtResource("8_jh1i6")
 world = NodePath("../..")
 
-[node name="Description" type="Label" parent="UI/MainView"]
+[node name="Description" type="Label" parent="UI/MainView" node_paths=PackedStringArray("world")]
 material = SubResource("ShaderMaterial_ebb0e")
 layout_mode = 0
 offset_left = 243.0
@@ -446,6 +447,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_7fngn")
 theme_override_font_sizes/font_size = 240
 text = "DRAWING DRAWING DRAWING"
+script = ExtResource("11_xhup8")
+world = NodePath("../../..")
 
 [node name="Number" type="Label" parent="UI/MainView"]
 layout_mode = 0

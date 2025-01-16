@@ -438,9 +438,9 @@ world = NodePath("../..")
 [node name="Description" type="Label" parent="UI/MainView" node_paths=PackedStringArray("world")]
 material = SubResource("ShaderMaterial_ebb0e")
 layout_mode = 0
-offset_left = 243.0
+offset_left = 160.0
 offset_top = -1306.0
-offset_right = 3664.0
+offset_right = 3674.0
 offset_bottom = -1065.0
 rotation = 1.5708
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -452,10 +452,10 @@ world = NodePath("../../..")
 
 [node name="Number" type="Label" parent="UI/MainView"]
 layout_mode = 0
-offset_left = 243.0
-offset_top = 36.0
-offset_right = 470.0
-offset_bottom = 277.0
+offset_left = 160.0
+offset_top = 16.0
+offset_right = 407.0
+offset_bottom = 257.0
 rotation = 1.5708
 theme = SubResource("Theme_2gn0j")
 theme_override_colors/font_color = Color(0.34, 0.34, 0.34, 1)

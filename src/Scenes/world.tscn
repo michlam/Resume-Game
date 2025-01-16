@@ -9,7 +9,7 @@
 [ext_resource type="ArrayMesh" uid="uid://chn0uaxn7ksa2" path="res://Assets/Drawer_1.obj" id="7_ivhw2"]
 [ext_resource type="FontFile" uid="uid://djyk225x2met7" path="res://Assets/Fonts/Helvetica/Helvetica-BoldOblique.ttf" id="8_3862h"]
 [ext_resource type="Script" path="res://src/Scripts/main_view.gd" id="8_jh1i6"]
-[ext_resource type="Shader" path="res://src/Shaders/description_schools.gdshader" id="9_augt7"]
+[ext_resource type="Shader" path="res://src/Shaders/description_drawing.gdshader" id="9_65qrr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_klyy4"]
 size = Vector3(10, 0.25, 10)
@@ -337,7 +337,7 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ebb0e"]
-shader = ExtResource("9_augt7")
+shader = ExtResource("9_65qrr")
 
 [sub_resource type="FontVariation" id="FontVariation_7fngn"]
 base_font = ExtResource("8_3862h")
@@ -445,7 +445,7 @@ rotation = 1.5708
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_7fngn")
 theme_override_font_sizes/font_size = 240
-text = "SCHOOLS SCHOOLS SCHOOLS"
+text = "DRAWING DRAWING DRAWING"
 
 [node name="Number" type="Label" parent="UI/MainView"]
 layout_mode = 0

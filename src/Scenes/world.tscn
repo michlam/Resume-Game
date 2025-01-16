@@ -1,7 +1,8 @@
-[gd_scene load_steps=38 format=3 uid="uid://b3sim1bnrk3pm"]
+[gd_scene load_steps=42 format=3 uid="uid://b3sim1bnrk3pm"]
 
 [ext_resource type="ArrayMesh" uid="uid://cv731ixma7nih" path="res://Assets/Bed_Single.obj" id="1_tmb4w"]
 [ext_resource type="Script" path="res://src/Scripts/world.gd" id="1_x0d2u"]
+[ext_resource type="Texture2D" uid="uid://dhu6b34utl7yv" path="res://Assets/Images/skybox.jpg" id="2_2tu4e"]
 [ext_resource type="ArrayMesh" uid="uid://c04ll8ujpt2s3" path="res://Assets/Bookshelf.obj" id="2_i1sd4"]
 [ext_resource type="ArrayMesh" uid="uid://bgb2dc2nelold" path="res://Assets/Couch_Small2.obj" id="3_3hijf"]
 [ext_resource type="ArrayMesh" uid="uid://cm2cp1mdqurep" path="res://Assets/NightStand_1.obj" id="5_l6bul"]
@@ -12,9 +13,20 @@
 [ext_resource type="Shader" path="res://src/Shaders/description_project.gdshader" id="9_mncsl"]
 [ext_resource type="Script" path="res://src/Scripts/description.gd" id="11_xhup8"]
 [ext_resource type="FontFile" uid="uid://bt65l7ovacrk4" path="res://Assets/Fonts/Helvetica/Helvetica-Bold.ttf" id="12_g21pr"]
-[ext_resource type="Texture2D" uid="uid://buy5jmt7xdu6g" path="res://Assets/action_bg.png" id="12_gkkwo"]
+[ext_resource type="Texture2D" uid="uid://buy5jmt7xdu6g" path="res://Assets/Images/action_bg.png" id="12_gkkwo"]
 [ext_resource type="Script" path="res://src/Scripts/action_back.gd" id="13_crfdk"]
 [ext_resource type="Script" path="res://src/Scripts/action_front.gd" id="14_31cp7"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_edi5v"]
+panorama = ExtResource("2_2tu4e")
+
+[sub_resource type="Sky" id="Sky_jg3qb"]
+sky_material = SubResource("PanoramaSkyMaterial_edi5v")
+
+[sub_resource type="Environment" id="Environment_jaqsp"]
+background_mode = 2
+sky = SubResource("Sky_jg3qb")
+tonemap_mode = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_klyy4"]
 size = Vector3(10, 0.25, 10)
@@ -366,6 +378,21 @@ font_color = Color(1, 1, 1, 0)
 outline_size = 3
 outline_color = Color(1, 0.631373, 1, 1)
 
+[sub_resource type="Animation" id="Animation_dtuek"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ActionBg:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1434, 910)]
+}
+
 [sub_resource type="Animation" id="Animation_bshwo"]
 resource_name = "action_bg_idle"
 length = 1.5
@@ -383,21 +410,6 @@ tracks/0/keys = {
 "values": [Vector2(1434, 910), Vector2(1434, 909), Vector2(1434, 902.25), Vector2(1434, 900)]
 }
 
-[sub_resource type="Animation" id="Animation_dtuek"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ActionBg:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1434, 910)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5t7x6"]
 _data = {
 "RESET": SubResource("Animation_dtuek"),
@@ -406,6 +418,9 @@ _data = {
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_x0d2u")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jaqsp")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.602208, 0.27505, -0.749462, 0, 0.938776, 0.344528, 0.798339, 0.207477, -0.565338, 2.16154, 1.68345, 2.35252)
@@ -424,13 +439,13 @@ light_energy = 0.367
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56667, 3.53432, 4.29381)
-light_color = Color(0.486275, 0.913725, 1, 1)
+light_color = Color(0.486275, 0.360784, 1, 1)
 light_energy = 16.0
 omni_range = 8.42173
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.71329, 3.53432, -5.37692)
-light_color = Color(0.486275, 0.913725, 1, 1)
+light_color = Color(0.486275, 0.760784, 1, 1)
 light_energy = 16.0
 omni_range = 8.42173
 

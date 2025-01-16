@@ -3,3 +3,4 @@
 
 # Citations:
 - Bedroom assets from Quatermius:		https://quaternius.com/packs/ultimatehomeinterior.html
+- Skybox:								https://github.com/rpgwhitelock/AllSkyFree_Godot/tree/master

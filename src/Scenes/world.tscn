@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b3sim1bnrk3pm"]
+[gd_scene load_steps=35 format=3 uid="uid://b3sim1bnrk3pm"]
 
 [ext_resource type="ArrayMesh" uid="uid://cv731ixma7nih" path="res://Assets/Bed_Single.obj" id="1_tmb4w"]
 [ext_resource type="Script" path="res://src/Scripts/world.gd" id="1_x0d2u"]
@@ -12,6 +12,7 @@
 [ext_resource type="Shader" path="res://src/Shaders/description_project.gdshader" id="9_mncsl"]
 [ext_resource type="Script" path="res://src/Scripts/description.gd" id="11_xhup8"]
 [ext_resource type="FontFile" uid="uid://bt65l7ovacrk4" path="res://Assets/Fonts/Helvetica/Helvetica-Bold.ttf" id="12_g21pr"]
+[ext_resource type="Texture2D" uid="uid://buy5jmt7xdu6g" path="res://Assets/action_bg.png" id="12_gkkwo"]
 [ext_resource type="Script" path="res://src/Scripts/action_back.gd" id="13_crfdk"]
 [ext_resource type="Script" path="res://src/Scripts/action_front.gd" id="14_31cp7"]
 
@@ -482,6 +483,12 @@ theme_override_fonts/font = SubResource("FontVariation_m2wrg")
 theme_override_font_sizes/font_size = 240
 text = "00
 "
+
+[node name="ActionBg" type="Sprite2D" parent="UI/MainView"]
+position = Vector2(1434, 910)
+rotation = 0.0630533
+scale = Vector2(0.143043, 0.135275)
+texture = ExtResource("12_gkkwo")
 
 [node name="ActionBack" type="Label" parent="UI/MainView" node_paths=PackedStringArray("world")]
 layout_mode = 0

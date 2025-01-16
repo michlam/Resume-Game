@@ -13,3 +13,4 @@ func update():
 	$Left/Description.update_shader()
 	$Action/ActionBack.update_text()
 	$Action/ActionFront.update_text()
+	$Top.update_focus()

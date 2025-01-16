@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b3sim1bnrk3pm"]
+[gd_scene load_steps=48 format=3 uid="uid://b3sim1bnrk3pm"]
 
 [ext_resource type="ArrayMesh" uid="uid://cv731ixma7nih" path="res://Assets/Bed_Single.obj" id="1_tmb4w"]
 [ext_resource type="Script" path="res://src/Scripts/world.gd" id="1_x0d2u"]
@@ -11,7 +11,10 @@
 [ext_resource type="FontFile" uid="uid://djyk225x2met7" path="res://Assets/Fonts/Helvetica/Helvetica-BoldOblique.ttf" id="8_3862h"]
 [ext_resource type="Script" path="res://src/Scripts/main_view.gd" id="8_jh1i6"]
 [ext_resource type="Shader" path="res://src/Shaders/description_project.gdshader" id="9_mncsl"]
+[ext_resource type="Script" path="res://src/Scripts/top.gd" id="10_hduba"]
 [ext_resource type="FontFile" uid="uid://bg3ap2bvi3dba" path="res://Assets/Fonts/Helvetica/helvetica-light-587ebe5a59211.ttf" id="11_fu7am"]
+[ext_resource type="Texture2D" uid="uid://d0pv784ewcht6" path="res://Assets/Images/button.png" id="11_lln1p"]
+[ext_resource type="Texture2D" uid="uid://cdjtvk70s1buw" path="res://Assets/Images/button_selected.png" id="11_uk7yg"]
 [ext_resource type="Script" path="res://src/Scripts/description.gd" id="11_xhup8"]
 [ext_resource type="FontFile" uid="uid://bt65l7ovacrk4" path="res://Assets/Fonts/Helvetica/Helvetica-Bold.ttf" id="12_g21pr"]
 [ext_resource type="Texture2D" uid="uid://buy5jmt7xdu6g" path="res://Assets/Images/action_bg.png" id="12_gkkwo"]
@@ -517,10 +520,14 @@ offset_bottom = 1080.0
 script = ExtResource("8_jh1i6")
 world = NodePath("../..")
 
-[node name="Top" type="Control" parent="UI/MainView"]
+[node name="Top" type="Control" parent="UI/MainView" node_paths=PackedStringArray("world")]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 3.0
+offset_top = 8.0
+offset_right = 43.0
+offset_bottom = 48.0
+script = ExtResource("10_hduba")
+world = NodePath("../../..")
 
 [node name="TopBg" type="ColorRect" parent="UI/MainView/Top"]
 modulate = Color(1, 1, 1, 0.913725)
@@ -530,6 +537,41 @@ offset_top = 6.0
 offset_right = 1920.0
 offset_bottom = 222.0
 color = Color(1, 0.976471, 1, 1)
+
+[node name="Buttons" type="Control" parent="UI/MainView/Top"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonSelected" type="Sprite2D" parent="UI/MainView/Top/Buttons"]
+position = Vector2(1367, 176.24)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_uk7yg")
+
+[node name="Button" type="Sprite2D" parent="UI/MainView/Top/Buttons"]
+position = Vector2(1367, 176.24)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_lln1p")
+
+[node name="Button2" type="Sprite2D" parent="UI/MainView/Top/Buttons"]
+position = Vector2(1417, 176.24)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_lln1p")
+
+[node name="Button3" type="Sprite2D" parent="UI/MainView/Top/Buttons"]
+position = Vector2(1467, 176.24)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_lln1p")
+
+[node name="Button4" type="Sprite2D" parent="UI/MainView/Top/Buttons"]
+position = Vector2(1517, 176.24)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_lln1p")
+
+[node name="Button5" type="Sprite2D" parent="UI/MainView/Top/Buttons"]
+position = Vector2(1567, 176.24)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_lln1p")
 
 [node name="L" type="Label" parent="UI/MainView/Top"]
 layout_mode = 0
@@ -542,13 +584,14 @@ label_settings = SubResource("LabelSettings_ju3i5")
 
 [node name="Description" type="Label" parent="UI/MainView/Top"]
 layout_mode = 0
-offset_left = 1374.0
+offset_left = 1268.0
 offset_top = 99.0
-offset_right = 1547.0
-offset_bottom = 158.0
+offset_right = 1665.0
+offset_bottom = 188.0
 text = "Projects
 "
 label_settings = SubResource("LabelSettings_vcg42")
+horizontal_alignment = 1
 
 [node name="R" type="Label" parent="UI/MainView/Top"]
 layout_mode = 0

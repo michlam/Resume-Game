@@ -446,7 +446,7 @@ rotation = 1.5708
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_7fngn")
 theme_override_font_sizes/font_size = 240
-text = "DRAWING DRAWING DRAWING"
+text = "PROJECTS PROJECTS PROJECTS"
 script = ExtResource("11_xhup8")
 world = NodePath("../../..")
 

@@ -1,7 +1,7 @@
 extends Control
 
 # TABLE, DRAWER, SHELF, COUCH, BED
-const DESCRIPTION_LIST = ["PROJECT ", "SCHOOLS ", "GAMEDEV ", "WORKEXP ", "DRAWING "]
+const DESCRIPTION_LIST = ["PROJECTS ", "EDUCATION ", "GAMEDEV ", "CAREER ", "DRAWINGS "]
 
 @export var world: Node3D
 

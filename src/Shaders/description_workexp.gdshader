@@ -24,7 +24,7 @@ void vertex() {
 	float n_out4p0 = fract(n_out3p0);
 
 // VectorOp:5
-	vec3 n_in5p1 = vec3(1140.00000, 0.00000, 0.00000);
+	vec3 n_in5p1 = vec3(946.00000, 0.00000, 0.00000);
 	vec3 n_out5p0 = vec3(n_out4p0) * n_in5p1;
 
 // VectorOp:6

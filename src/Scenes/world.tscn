@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b3sim1bnrk3pm"]
+[gd_scene load_steps=34 format=3 uid="uid://b3sim1bnrk3pm"]
 
 [ext_resource type="ArrayMesh" uid="uid://cv731ixma7nih" path="res://Assets/Bed_Single.obj" id="1_tmb4w"]
 [ext_resource type="Script" path="res://src/Scripts/world.gd" id="1_x0d2u"]
@@ -11,6 +11,9 @@
 [ext_resource type="Script" path="res://src/Scripts/main_view.gd" id="8_jh1i6"]
 [ext_resource type="Shader" path="res://src/Shaders/description_project.gdshader" id="9_mncsl"]
 [ext_resource type="Script" path="res://src/Scripts/description.gd" id="11_xhup8"]
+[ext_resource type="FontFile" uid="uid://bt65l7ovacrk4" path="res://Assets/Fonts/Helvetica/Helvetica-Bold.ttf" id="12_g21pr"]
+[ext_resource type="Script" path="res://src/Scripts/action_back.gd" id="13_crfdk"]
+[ext_resource type="Script" path="res://src/Scripts/action_front.gd" id="14_31cp7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_klyy4"]
 size = Vector3(10, 0.25, 10)
@@ -350,6 +353,18 @@ spacing_glyph = -20
 base_font = ExtResource("8_3862h")
 spacing_glyph = -10
 
+[sub_resource type="LabelSettings" id="LabelSettings_scrvm"]
+font = ExtResource("12_g21pr")
+font_size = 48
+font_color = Color(1, 0.345098, 1, 0.729412)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l8w7i"]
+font = ExtResource("12_g21pr")
+font_size = 48
+font_color = Color(1, 1, 1, 0)
+outline_size = 3
+outline_color = Color(1, 0.631373, 1, 1)
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_x0d2u")
 
@@ -444,6 +459,8 @@ offset_right = 3674.0
 offset_bottom = -1065.0
 rotation = 1.5708
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 1, 1, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = SubResource("FontVariation_7fngn")
 theme_override_font_sizes/font_size = 240
 text = "PROJECTS PROJECTS PROJECTS"
@@ -465,3 +482,25 @@ theme_override_fonts/font = SubResource("FontVariation_m2wrg")
 theme_override_font_sizes/font_size = 240
 text = "00
 "
+
+[node name="ActionBack" type="Label" parent="UI/MainView" node_paths=PackedStringArray("world")]
+layout_mode = 0
+offset_left = 1113.0
+offset_top = 926.0
+offset_right = 1796.0
+offset_bottom = 975.0
+text = "Press ENTER to view projects"
+label_settings = SubResource("LabelSettings_scrvm")
+script = ExtResource("13_crfdk")
+world = NodePath("../../..")
+
+[node name="ActionFront" type="Label" parent="UI/MainView" node_paths=PackedStringArray("world")]
+layout_mode = 0
+offset_left = 1116.0
+offset_top = 929.0
+offset_right = 1799.0
+offset_bottom = 978.0
+text = "Press ENTER to view projects"
+label_settings = SubResource("LabelSettings_l8w7i")
+script = ExtResource("14_31cp7")
+world = NodePath("../../..")

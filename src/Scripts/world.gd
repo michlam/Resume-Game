@@ -2,12 +2,14 @@ extends Node3D
 
 # TABLE, DRAWER, SHELF, COUCH, BED
 const FOCUS_LIST = ["TABLE", "DRAWER", "SHELF", "COUCH", "BED"]
+const STATE_LIST = ["MAIN", "FOCUS"]
 
 @onready var focus = 0 # corresponds to index for focus list
 @onready var camera = $Camera3D
 @onready var ap = $AnimationPlayer
 
 @onready var main_view = $UI/MainView
+@onready var state = "MAIN"
 
 func _ready() -> void:
 	pass;
@@ -16,21 +18,33 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if ap.is_playing():
 		return
-		
-	if Input.is_action_just_pressed("move_left"):
-		animate_move_left()
-		focus = (focus + 4) % FOCUS_LIST.size()
-		main_view.update_focus()
-		
-	if Input.is_action_just_pressed("move_right"):
-		animate_move_right()
-		focus = (focus + 1) % FOCUS_LIST.size()
-		main_view.update_focus()
 	
-	if Input.is_action_just_pressed("enter"):
-		ap.play("transition_1")
+	if state == "MAIN":
+		if Input.is_action_just_pressed("move_left"):
+			animate_move_left()
+			focus = (focus + 4) % FOCUS_LIST.size()
+			main_view.update_focus()
+			
+		if Input.is_action_just_pressed("move_right"):
+			animate_move_right()
+			focus = (focus + 1) % FOCUS_LIST.size()
+			main_view.update_focus()
+		
+		if Input.is_action_just_pressed("enter"):
+			animate_focus()
+	
+	if state == "FOCUS":
+		if Input.is_action_just_pressed("escape"):
+			animate_main()
 
+func animate_main():
+	state = "MAIN"
+	ap.play("transition_2")
 
+func animate_focus():
+	state = "FOCUS"
+	ap.play("transition_1")
+	
 
 func animate_move_right():
 	if focus == 0:

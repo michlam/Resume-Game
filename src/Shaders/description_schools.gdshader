@@ -33,5 +33,3 @@ void vertex() {
 // Output:0
 	VERTEX = vec2(n_out6p0.xy);
 }
-
-

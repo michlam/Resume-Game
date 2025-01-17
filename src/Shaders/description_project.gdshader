@@ -3,10 +3,10 @@ render_mode blend_mix;
 
 void fragment() {
 	vec2 screen_uv = SCREEN_UV;
-	
+
 	if (screen_uv.y < 0.295) {
 		COLOR = vec4(0, 0, 0, 0.0);
-	} 
+	}
 }
 
 
@@ -33,5 +33,3 @@ void vertex() {
 // Output:0
 	VERTEX = vec2(n_out6p0.xy);
 }
-
-

@@ -7,6 +7,7 @@ const STATE_LIST = ["MAIN", "FOCUS"]
 @onready var focus = 0 # corresponds to index for focus list
 @onready var camera = $Camera3D
 @onready var ap = $AnimationPlayer
+@onready var ap2 = $AnimationPlayer2
 
 @onready var main_view = $UI/MainView
 @onready var state = "MAIN"
@@ -37,14 +38,27 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("escape"):
 			animate_main()
 
+
 func animate_main():
 	state = "MAIN"
 	ap.play("transition_2")
+
 
 func animate_focus():
 	state = "FOCUS"
 	ap.play("transition_1")
 	
+	#if focus == 0:
+		#ap2.play("focus_table")
+	#if focus == 1:
+		#ap2.play()
+	#if focus == 2:
+		#ap2.play(")
+	#if focus == 3:
+		#ap2.play()
+	#if focus == 4:
+		#ap2.play()
+
 
 func animate_move_right():
 	if focus == 0:

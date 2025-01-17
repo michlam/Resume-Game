@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://b3sim1bnrk3pm"]
+[gd_scene load_steps=57 format=3 uid="uid://b3sim1bnrk3pm"]
 
 [ext_resource type="ArrayMesh" uid="uid://cv731ixma7nih" path="res://Assets/Bed_Single.obj" id="1_tmb4w"]
 [ext_resource type="Script" path="res://src/Scripts/world.gd" id="1_x0d2u"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cs2av8x7dqkqs" path="res://Assets/Images/arrow.png" id="15_rqhhc"]
 [ext_resource type="Texture2D" uid="uid://n8o5v408v5lr" path="res://Assets/Images/transition_2.png" id="22_hptjm"]
 [ext_resource type="Script" path="res://src/Scripts/focus_view.gd" id="22_x4mpg"]
+[ext_resource type="Texture2D" uid="uid://cbtr807yubqil" path="res://Assets/Images/shard1.png" id="23_0cv2s"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_edi5v"]
 panorama = ExtResource("2_2tu4e")
@@ -764,6 +765,7 @@ libraries = {
 [node name="UI" type="Node" parent="."]
 
 [node name="MainView" type="Control" parent="UI" node_paths=PackedStringArray("world")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
@@ -961,6 +963,11 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("22_x4mpg")
+
+[node name="Shard1" type="Sprite2D" parent="UI/FocusView"]
+position = Vector2(998, 586)
+scale = Vector2(2.19473, 2.19473)
+texture = ExtResource("23_0cv2s")
 
 [node name="Transitions" type="Control" parent="UI"]
 layout_mode = 3
